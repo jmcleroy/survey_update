@@ -1,0 +1,23 @@
+{
+  "name": "Survey_Update",
+  "description": "Choose which date you want to restore to",
+  "spec": [
+    {
+      "type": "multiplechoice",
+      "question_name": "Choose which desired value?",
+      "question_description": "Choose desired value.",
+      "variable": "vmware_variable",
+      "choices": [
+{% for file in backups.files %}
+{% if loop.last %}
+        "{{file.path.split('/')[-1]}}"
+{% else %}
+        "{{file.path.split('/')[-1]}}",
+{% endif %}
+{% endfor %}
+      ],
+      "required": true,
+      "default": "{{backups.files[0].path.split('/')[-1]}}"
+    }
+  ]
+}

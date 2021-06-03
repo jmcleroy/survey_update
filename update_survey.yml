@@ -1,0 +1,13 @@
+---
+- hosts: all
+  gather_facts: false
+  collections:
+    - awx.awx
+
+  tasks:
+    - name: create restore job template
+      awx.awx.tower_job_template:
+        name: "Survey_Update"
+        survey_enabled: true
+        survey_spec: "{{ lookup('template', '{{playbook_dir}}/templates/update_survey.j2') }}"
+        validate_certs: no
