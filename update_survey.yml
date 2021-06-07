@@ -5,7 +5,7 @@
     - awx.awx
 
   tasks:
-    - name: create restore job template
+    - name: Update vCenter job template
       awx.awx.tower_job_template:
         name: "Survey_Update"
         survey_enabled: true

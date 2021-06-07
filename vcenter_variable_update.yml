@@ -1,0 +1,9 @@
+---
+- hosts: all
+  gather_facts: false
+  collections:
+    - awx.awx
+    - community.vmware
+
+  tasks:
+    - name: Gather vCenter Facts

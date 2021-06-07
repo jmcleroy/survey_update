@@ -1,23 +1,21 @@
 {
   "name": "Survey_Update",
-  "description": "Choose which date you want to restore to",
+  "description": "Update survey with new vCenter Clusters",
   "spec": [
     {
       "type": "multiplechoice",
       "question_name": "Choose which desired value?",
       "question_description": "Choose desired value.",
-      "variable": "vmware_variable",
+      "variable": "vmware_cluster",
       "choices": [
-{% for file in backups.files %}
-{% if loop.last %}
-        "{{file.path.split('/')[-1]}}"
-{% else %}
-        "{{file.path.split('/')[-1]}}",
-{% endif %}
+{% for result in results %}
+  {% for elem in result %}
+    <td>{{elem}}</td>
+  {% endfor %}
 {% endfor %}
       ],
       "required": true,
-      "default": "{{backups.files[0].path.split('/')[-1]}}"
+      "default": "Choose vCenter Cluster"
     }
   ]
 }
