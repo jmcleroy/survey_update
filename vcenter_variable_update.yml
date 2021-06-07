@@ -2,8 +2,8 @@
 - hosts: all
   gather_facts: false
   collections:
-    - awx.awx
     - community.vmware
+    - ansible.builtin
 
   tasks:
     - name: Gather cluster info from given datacenter
@@ -11,3 +11,8 @@
         datacenter: {{ vcenter_datacenter }}
       delegate_to: localhost
       register: cluster_info
+
+    - name: Print info returned in cluster_info
+      ansible.builtin.debug:
+        var: cluster_info
+        verbosity: 2
