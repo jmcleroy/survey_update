@@ -8,9 +8,9 @@
       "question_description": "Choose desired value.",
       "variable": "vmware_cluster",
       "choices": [
-{% for result in results %}
-  {% for elem in result %}
-    <td>{{elem}}</td>
+{% for result in cluster_info %}
+  {% for name in result %}
+    <td>{{ name }}</td>
   {% endfor %}
 {% endfor %}
       ],
