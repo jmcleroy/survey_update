@@ -9,5 +9,5 @@
       awx.awx.tower_job_template:
         name: "Survey_Update"
         survey_enabled: true
-        survey_spec: "{{ lookup('template', '{{playbook_dir}}/templates/update_survey.j2') }}"
+        survey_spec: "{{ lookup('template', '{{ playbook_dir }}/templates/update_survey.j2') }}"
         validate_certs: no
